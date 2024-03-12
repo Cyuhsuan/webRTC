@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    const openMediaDevices = async (constraints) => {
+        return await navigator.mediaDevices.getUserMedia(constraints);
+    }
+
+    try {
+        const stream = openMediaDevices({ 'video': true, 'audio': true });
+        console.log('Got MediaStream:', stream);
+    } catch (error) {
+        console.error('Error accessing media devices.', error);
+    }
+
+    openMediaDevices()
+</script>
+
+</html>

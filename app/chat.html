@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+        <title>chat</title>
+        <style lang="scss">
+            video {
+                transform: scaleX(-1);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <video muted="false" width="320" autoplay playsinline id="localVideo"></video>
+            <video width="320" autoplay playsinline id="remoteVideo"></video>
+            
+            <button type="button" id="call">call</button>
+            <button type="button" id="hangup">hangup</button>
+        </div>
+        <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/socket.io-client@3.0.4/dist/socket.io.js"></script>
+        <script src="chat.js" type="module" async></script>
+    </body>
+</html>
