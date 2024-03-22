@@ -3,7 +3,7 @@ const app = express();
 const http = require('http');
 const socket = require('socket.io');
 
-const server = http.createServer(app).listen('4000');
+const server = http.createServer(app).listen('9111');
 
 app.get('/chat', function(req, res) {
     res.sendfile(`${__dirname}/chat.html`);
@@ -28,17 +28,17 @@ io.on('connection', (socket) => {
     });
 
     // 轉傳 Offer
-    socket.on('offer', (room, description) => {
+    socket.on('offer', ({room, description}) => {
         socket.to(room).emit('offer', description);
     });
 
     // 轉傳 Answer
-    socket.on('answer', (room, description) => {
+    socket.on('answer', ({room, description}) => {
         socket.to(room).emit('answer', description);
     });
 
     // 交換 ice candidate
-    socket.on('ice_candidate', (room, data) => {
+    socket.on('ice_candidate', ({room, data}) => {
         socket.to(room).emit('ice_candidate', data);
     });
 
